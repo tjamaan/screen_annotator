@@ -1,7 +1,21 @@
-use bevy::{core_pipeline::clear_color::ClearColorConfig, input::common_conditions, prelude::*};
+use std::time::Duration;
+
+use bevy::{
+    core_pipeline::clear_color::ClearColorConfig, input::common_conditions, prelude::*,
+    winit::WinitSettings,
+};
 
 fn main() {
     App::new()
+        .insert_resource(WinitSettings {
+            focused_mode: bevy::winit::UpdateMode::ReactiveLowPower {
+                max_wait: Duration::MAX,
+            },
+            unfocused_mode: bevy::winit::UpdateMode::ReactiveLowPower {
+                max_wait: Duration::MAX,
+            },
+            ..default()
+        })
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 title: "Screen Annotator".to_string(),

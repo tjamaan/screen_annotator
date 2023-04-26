@@ -5,7 +5,7 @@ fn main() {
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 title: "Screen Annotator".to_string(),
-                //transparent: true,
+                transparent: true,
                 composite_alpha_mode: bevy::window::CompositeAlphaMode::PostMultiplied,
                 ..default()
             }),
